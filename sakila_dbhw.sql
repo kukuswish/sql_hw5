@@ -72,7 +72,7 @@ join inventory on film.film_id = inventory.film_id
 where film.title = 'Hunchback Impossible';
 
 -- 6e. Using the tables payment and customer and the JOIN command, list the total paid by each customer. List the customers alphabetically by last name:
-select customer.customer_id, customer.first_name, customer.last_name, sum(payment.amount) 
+select customer.first_name, customer.last_name, sum(payment.amount) as 'Total Amount Paid'
 from customer
 join payment on customer.customer_id = payment.customer_id
 group by customer.customer_id
