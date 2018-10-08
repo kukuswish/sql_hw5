@@ -43,3 +43,6 @@ update actor set first_name='HARPO' where first_name='GROUCHO' and last_name='WI
 -- 4d. Perhaps we were too hasty in changing GROUCHO to HARPO. It turns out that GROUCHO was the correct name after all! In a single query, 
 -- if the first name of the actor is currently HARPO, change it to GROUCHO.
 update actor set first_name='GROUCHO' where first_name='HARPO' limit 1;
+
+-- 5a. You cannot locate the schema of the address table. Which query would you use to re-create it?
+show create table address;
