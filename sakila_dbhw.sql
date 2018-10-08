@@ -18,3 +18,13 @@ select last_name, first_name from actor where last_name like '%li%';
 
 -- 2d. Using IN, display the country_id and country columns of the following countries: Afghanistan, Bangladesh, and China:
 select country_id, country.country from country where country.country in ('Afghanistan', 'Bangladesh', 'China');
+
+-- 3a. You want to keep a description of each actor. You don't think you will be performing queries on a description, 
+-- so create a column in the table actor named description and use the data type BLOB 
+-- (Make sure to research the type BLOB, as the difference between it and VARCHAR are significant).
+alter table 'sakila'.'actor' add column 'description' blob null after 'last_update';
+
+-- 3b. Very quickly you realize that entering descriptions for each actor is too much effort. Delete the description column.
+ALTER TABLE `sakila`.`actor` 
+DROP COLUMN `description`;
+
