@@ -131,3 +131,20 @@ join rental on inventory.inventory_id = rental.inventory_id
 join payment on rental.rental_id = payment.rental_id
 group by category.category_id
 order by revenue desc;
+
+-- 8a. In your new role as an executive, you would like to have an easy way of viewing the Top five genres by gross revenue.
+-- Use the solution from the problem above to create a view. If you haven't solved 7h, you can substitute another query to create a view.
+create view genre_revenue as
+select category.name, sum(payment.amount) as revenue from category
+join film_category on category.category_id = film_category.category_id
+join inventory on film_category.film_id = inventory.film_id
+join rental on inventory.inventory_id = rental.inventory_id
+join payment on rental.rental_id = payment.rental_id
+group by category.category_id
+order by revenue desc;
+
+-- 8b. How would you display the view that you created in 8a?
+select * from genre_revenue;
+
+-- 8c. You find that you no longer need the view top_five_genres. Write a query to delete it.
+drop view genre_revenue;
