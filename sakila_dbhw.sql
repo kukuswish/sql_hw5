@@ -23,13 +23,11 @@ select country_id, country.country from country where country.country in ('Afgha
 -- so create a column in the table actor named description and use the data type BLOB 
 -- (Make sure to research the type BLOB, as the difference between it and VARCHAR are significant).
 
-/***ALTER TABLE sakila.actor
-ADD COLUMN 'description' BLOB NULL AFTER 'last_update';
+alter table `sakila`.`actor` add column `description` blob after `last_update`;
 
 -- 3b. Very quickly you realize that entering descriptions for each actor is too much effort. Delete the description column.
-ALTER TABLE `sakila`.`actor` 
-DROP COLUMN `description`;
-** */
+alter table `sakila`.`actor` 
+drop column `description`;
 
 -- 4a. List the last names of actors, as well as how many actors have that last name.
 select last_name, count(last_name) from actor group by last_name;
